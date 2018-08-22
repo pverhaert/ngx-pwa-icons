@@ -1,0 +1,9 @@
+/.idea
+/node_modules
+/src
+
+*.tgz
+*.png
+!/bin/ngx-pwa-icons.png
+
+_TODO.txt

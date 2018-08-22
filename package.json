@@ -1,0 +1,36 @@
+{
+  "name": "ngx-pwa-icons",
+  "version": "0.0.1",
+  "description": "Generate Custom Angular-PWA icons",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pverhaert/ngx-pwa-icons.git"
+  },
+  "homepage": "https://github.com/indexzero/pverhaert/ngx-pwa-icons#readme",
+  "bugs": {
+    "url": "https://github.com/indexzero/pverhaert/ngx-pwa-icons/issues"
+  },
+  "preferGlobal": true,
+  "files": [
+    "bin"
+  ],
+  "bin": {
+    "ngx-pwa-icons": "./bin/ngx-pwa-icons.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Angular",
+    "PWA",
+    "Icons"
+  ],
+  "author": "Patrick Verhaert",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.3.1",
+    "jimp": "^0.3.5",
+    "yargs": "^12.0.1"
+  }
+}
