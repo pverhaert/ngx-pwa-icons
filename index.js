@@ -5,8 +5,9 @@ const fs = require('fs');
 let icon = './icon.png';
 let output = './src/assets/icons';
 let size = '512, 384, 192, 152, 144, 128, 96, 72';
+let name = 'icon-*x*.png';
 
-var argv = require('yargs')
+argv = require('yargs')
     .usage('Generate Angular-PWA icons\nUsage: $0 [options]')
     .help('help').alias('help', 'h')
     .version().alias('version', 'v')
@@ -31,12 +32,20 @@ var argv = require('yargs')
             default: size,
             requiresArg: true,
             required: false
+        },
+        name: {
+            alias: 'n',
+            description: "Icon names (replace wildcard * with size)",
+            default: name,
+            requiresArg: true,
+            required: false
         }
     })
     .argv;
 
 icon = argv.icon ? argv.icon : icon;
 output = argv.output ? argv.output : output;
+name = argv.name ? argv.name : name;
 if (argv.size) {
     let sizeStr = argv.size;
     size = sizeStr.split(' ').join(',').split(',');
@@ -60,14 +69,20 @@ var iconExists = function () {
 var generateIcons = function () {
     Jimp.read(icon)
         .then(image => {
-            size.forEach((wh) => {
-                wh = parseInt(wh);
-                if (Number.isInteger(wh)) {
-                    const outFolder = `${output}/icon-${wh}x${wh}.png`;
-                    image.resize(wh, wh).write(outFolder);
-                    console.log(`✓ ${outFolder}`.green);
-                }
-            });
+            const fileExtension = name.slice((name.lastIndexOf(".") - 1 >>> 0) + 2);
+            if (fileExtension == 'png' || fileExtension == 'jpg') {
+                size.forEach((wh) => {
+                    const outputName = name.split('*').join(wh);
+                    wh = parseInt(wh);
+                    if (Number.isInteger(wh)) {
+                        const outFolder = `${output}/${outputName}`;
+                        image.resize(wh, wh).write(outFolder);
+                        console.log(`✓ ${outFolder}`.green);
+                    }
+                });
+            } else {
+                console.log(`✗  use file extension .png or .jpg`.red);
+            }
         })
         .catch(err => {
             console.log(`✗  ${err}`.red);
