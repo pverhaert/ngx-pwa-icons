@@ -6,12 +6,17 @@ let icon = './icon.png';
 let output = './src/assets/icons';
 let size = '512, 384, 192, 152, 144, 128, 96, 72';
 let name = 'icon-*x*.png';
+let dry;
 
 argv = require('yargs')
     .usage('Generate Angular-PWA icons\nUsage: $0 [options]')
     .help('help').alias('help', 'h')
     .version().alias('version', 'v')
     .options({
+        'dry-run': {
+            alias: 'd',
+            description: "Run through without making any changes."
+        },
         icon: {
             alias: 'i',
             description: "Input file",
@@ -46,6 +51,8 @@ argv = require('yargs')
 icon = argv.icon ? argv.icon : icon;
 output = argv.output ? argv.output : output;
 name = argv.name ? argv.name : name;
+dry = argv.d ? true : false;
+console.log('dry', dry);
 if (argv.size) {
     let sizeStr = argv.size;
     size = sizeStr.split(' ').join(',').split(',');
@@ -76,10 +83,15 @@ var generateIcons = function () {
                     wh = parseInt(wh);
                     if (Number.isInteger(wh)) {
                         const outFolder = `${output}/${outputName}`;
-                        image.resize(wh, wh).write(outFolder);
+                        if (!dry) {
+                            image.resize(wh, wh).write(outFolder);
+                        }
                         console.log(`✓ ${outFolder}`.green);
                     }
                 });
+                if (dry) {
+                    console.log(`NOTE: Run with "dry run" no changes were made.`.yellow);
+                }
             } else {
                 console.log(`✗  use file extension .png or .jpg`.red);
             }

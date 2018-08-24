@@ -45,7 +45,8 @@ For good results, your `icon.png` file should be:
 ### Available Options:
 
 `-h` or `--help` Show help   
-`-v` or `--version` Show package version number  
+`-v` or `--version` Show package version number   
+`-d` or `--dry-run` Run through without making any changes  
 `-i` or `--icon` Original icon to convert (defaults to **"./icon.png"**)   
 `-o` or `--output` Output folder  (defaults to **"./src/assets/icons"**)   
 `-s` or `--size` Resize icons to px  (defaults to **"512, 384, 192, 152, 144, 128, 96, 72"**)   

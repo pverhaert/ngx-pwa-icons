@@ -1,7 +1,7 @@
 {
   "name": "ngx-pwa-icons",
-  "version": "0.0.3",
-  "description": "Generate Custom Angular-PWA icons",
+  "version": "0.1.0",
+  "description": "Generate Custom Angular6+ PWA icons",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -22,9 +22,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Angular",
-    "PWA",
-    "Icons"
+    "angular",
+    "pwa",
+    "progressive web apps",
+    "icons"
   ],
   "author": "Patrick Verhaert",
   "license": "ISC",
