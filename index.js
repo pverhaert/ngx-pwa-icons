@@ -54,7 +54,7 @@ name = argv.name ? argv.name : name;
 dry = argv.d ? true : false;
 console.log('dry', dry);
 if (argv.size) {
-    let sizeStr = argv.size;
+    let sizeStr = '' + argv.size;
     size = sizeStr.split(' ').join(',').split(',');
 }
 
