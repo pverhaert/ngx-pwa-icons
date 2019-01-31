@@ -52,4 +52,4 @@ For good results, your `icon.png` file should be:
 `-s` or `--size` Resize icons to px  (defaults to **"512, 384, 192, 152, 144, 128, 96, 72"**)   
 `-n` or `--name` Icon name.   
 Replaces wildcard character * with icons size  (defaults to **"icon-\*x\*.png"**)  
-Eg: `ngx-pwa-icons -s "100, 200, 300 -n "icon_*_*.png` generates **icon_100_100.png**, **icon_200_200.png** and **icon_300_300.png**, 
+Eg: `ngx-pwa-icons -s "100,200,300" -n "icon_*_*.png"` generates **icon_100_100.png**, **icon_200_200.png** and **icon_300_300.png**, 

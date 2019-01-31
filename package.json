@@ -1,10 +1,10 @@
 {
   "name": "ngx-pwa-icons",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate Custom Angular6+ PWA icons",
   "main": "index.js",
   "repository": {
-    "type": "git",
+    "type": "git",0.1.1
     "url": "git://github.com/pverhaert/ngx-pwa-icons.git"
   },
   "homepage": "https://github.com/indexzero/pverhaert/ngx-pwa-icons#readme",
